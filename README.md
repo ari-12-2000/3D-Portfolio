@@ -25,26 +25,6 @@ An interactive 3D portfolio website built with React Three Fiber that showcases 
 - **Animations**: [Tailwind CSS Animate](https://github.com/jamiebuilds/tailwindcss-animate)
 - **Type Safety**: [TypeScript](https://www.typescriptlang.org/)
 
-## 📋 Project Structure
-
-\`\`\`
-├── app/
-│   ├── page.tsx              # Main page with 3D scene setup
-│   ├── layout.tsx            # Root layout
-│   └── globals.css           # Global styles
-├── components/
-│   ├── computer-model.tsx    # 3D computer/monitor model
-│   ├── scene.tsx             # 3D scene configuration
-│   ├── floating-card.tsx     # Floating card component for resume content
-│   ├── detailed-view.tsx     # Modal for detailed section view
-│   ├── navigation.tsx        # Navigation buttons
-│   ├── info-panel.tsx        # Info panel component
-│   └── ui/                   # shadcn/ui components
-├── public/                   # Static assets
-├── package.json              # Project dependencies
-└── tsconfig.json             # TypeScript configuration
-\`\`\`
-
 ## 🚀 Getting Started
 
 ### Prerequisites
