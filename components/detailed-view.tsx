@@ -5,7 +5,7 @@ const resumeData = {
     title: "Aritra Kumar Bara",
     subtitle: "Full Stack Developer",
     description:
-      "1+ year of experience delivering end-to-end web applications using React, Next.js, Angular, Node.js, and SQL databases. Skilled in both frontend performance optimization and backend system design.",
+      "Full Stack Developer with 1+ year of experience delivering end-to-end web applications using React, Next.js, Angular, Node.js, and SQL databases. Skilled in both frontend performance optimization and backend system design.",
     color: "#3b82f6",
     contact: {
       phone: "9330768649",
