@@ -4,73 +4,13 @@ import { useRef, useState } from "react"
 import { useFrame } from "@react-three/fiber"
 import { Html } from "@react-three/drei"
 import type * as THREE from "three"
+import { resumeData } from "@/lib/utils"
 
 interface ComputerModelProps {
   activeSection: string
   onSectionClick: (section: string) => void
 }
 
-const resumeData = {
-  about: {
-    title: "Aritra Kumar Bara",
-    subtitle: "Full Stack Developer",
-    description: "1+ year of experience delivering end-to-end web applications",
-    color: "#3b82f6",
-  },
-  skills: {
-    title: "Technical Skills",
-    items: [
-      "React.js, Next.js, Angular",
-      "Node.js, Express.js",
-      "TypeScript, JavaScript",
-      "PostgreSQL, MongoDB",
-      "Tailwind CSS, Material-UI",
-      "Docker, CI/CD",
-    ],
-    color: "#8b5cf6",
-  },
-  experience: {
-    title: "Work Experience",
-    items: [
-      {
-        role: "Software Developer",
-        company: "Orglens Consultancy",
-        period: "Sep 2024 – Present",
-        highlight: "Built scalable org network visualization for 100K+ users",
-      },
-      {
-        role: "Software Engineer Trainee",
-        company: "Invenia Systems",
-        period: "June 2024 – Aug 2024",
-        highlight: "Developed responsive dashboards with Angular 18",
-      },
-    ],
-    color: "#ec4899",
-  },
-  projects: {
-    title: "Projects",
-    items: [
-      {
-        name: "EduPortal",
-        description: "Scalable learning platform with quizzes, courses, and payments",
-        tech: "Next.js, Node.js, Prisma, PostgreSQL, Razorpay",
-      },
-    ],
-    color: "#f59e0b",
-  },
-  education: {
-    title: "Education",
-    items: [
-      {
-        school: "Bengal Institute of Technology",
-        degree: "B.Tech in Computer Science & Engineering",
-        cgpa: "CGPA: 9.15 / 10.00",
-        period: "Jul 2019 – Jul 2023",
-      },
-    ],
-    color: "#10b981",
-  },
-}
 
 export default function ComputerModel({ activeSection, onSectionClick }: ComputerModelProps) {
   const groupRef = useRef<THREE.Group>(null)
@@ -84,7 +24,7 @@ export default function ComputerModel({ activeSection, onSectionClick }: Compute
   })
 
   const sections = ["about", "skills", "experience", "projects", "education"]
-  const data = resumeData[activeSection as keyof typeof resumeData]
+  const data= resumeData[activeSection as keyof typeof resumeData]
 
   return (
     <group ref={groupRef}>
