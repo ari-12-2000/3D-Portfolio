@@ -14,7 +14,6 @@ interface ComputerModelProps {
 
 export default function ComputerModel({ activeSection, onSectionClick }: ComputerModelProps) {
   const groupRef = useRef<THREE.Group>(null)
-  const [hoveredSection, setHoveredSection] = useState<string | null>(null)
 
   useFrame(({ clock }) => {
     if (groupRef.current) {
@@ -23,8 +22,9 @@ export default function ComputerModel({ activeSection, onSectionClick }: Compute
     }
   })
 
-  const sections = ["about", "skills", "experience", "projects", "education"]
+  const sections = ["About", "Skills", "Experience", "Projects", "Education"]
   const data= resumeData[activeSection as keyof typeof resumeData]
+  console.log(activeSection, data);
 
   return (
     <group ref={groupRef}>
@@ -119,7 +119,7 @@ export default function ComputerModel({ activeSection, onSectionClick }: Compute
             {sections.map((section) => (
               <button
                 key={section}
-                onClick={() => onSectionClick(section)}
+                onClick={() => onSectionClick(section.toLowerCase())}
                 className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm ${
                   activeSection === section
                     ? "text-white shadow-lg"
@@ -130,7 +130,7 @@ export default function ComputerModel({ activeSection, onSectionClick }: Compute
                   boxShadow: activeSection === section ? `0 0 20px ${data.color}80` : "none",
                 }}
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+                {section}
               </button>
             ))}
           </div>

@@ -11,20 +11,6 @@ type Contact = {
   location: string;
 };
 
-type About = {
-  title: string;
-  subtitle: string;
-  description: string;
-  color: string;
-  contact: Contact;
-};
-
-type Skills = {
-  title: string;
-  color: string;
-  categories: Record<string, string>;
-};
-
 type ExperienceItem = {
   role: string;
   company: string;
@@ -33,46 +19,16 @@ type ExperienceItem = {
   highlights: string[];
 };
 
-type Experience = {
-  title: string;
-  color: string;
-  items: ExperienceItem[];
-};
-
-type ProjectItem = {
-  name: string;
-  description: string;
-  highlights: string[];
-  tech: string;
-};
-
-type Projects = {
-  title: string;
-  color: string;
-  items: ProjectItem[];
-};
-
-type EducationItem = {
-  school: string;
-  degree: string;
-  cgpa: string;
-  period: string;
-  location: string;
-  achievements: string[];
-};
-
-type Education = {
-  title: string;
-  color: string;
-  items: EducationItem[];
-};
-
 export type ResumeData = {
-  about: About;
-  skills: Skills;
-  experience: Experience;
-  projects: Projects;
-  education: Education;
+  [key: string]:{
+    title: string;
+    subtitle?: string;
+    description?: string;
+    color: string;
+    contact?: Contact;
+    categories?: Record<string, string>;
+    items?: any[];
+  }
 };
 
 export const resumeData: ResumeData = {

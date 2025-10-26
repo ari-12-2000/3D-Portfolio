@@ -8,7 +8,7 @@ interface DetailedViewProps {
 }
 
 export default function DetailedView({ activeSection, onClose }: DetailedViewProps) {
-  const data:ResumeData = resumeData[activeSection as keyof typeof resumeData]
+  const data = resumeData[activeSection as keyof typeof resumeData]
 
   return (
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
@@ -35,15 +35,15 @@ export default function DetailedView({ activeSection, onClose }: DetailedViewPro
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-slate-700/30 p-4 rounded-lg border border-slate-600/50">
                   <p className="text-sm text-slate-400 mb-1">Phone</p>
-                  <p className="text-white font-semibold">{data.contact.phone}</p>
+                  <p className="text-white font-semibold">{data.contact!.phone}</p>
                 </div>
                 <div className="bg-slate-700/30 p-4 rounded-lg border border-slate-600/50">
                   <p className="text-sm text-slate-400 mb-1">Email</p>
-                  <p className="text-white font-semibold break-all">{data.contact.email}</p>
+                  <p className="text-white font-semibold break-all">{data.contact!.email}</p>
                 </div>
                 <div className="bg-slate-700/30 p-4 rounded-lg border border-slate-600/50">
                   <p className="text-sm text-slate-400 mb-1">Location</p>
-                  <p className="text-white font-semibold">{data.contact.location}</p>
+                  <p className="text-white font-semibold">{data.contact!.location}</p>
                 </div>
               </div>
             </>
@@ -51,7 +51,7 @@ export default function DetailedView({ activeSection, onClose }: DetailedViewPro
 
           {activeSection === "skills" && (
             <div className="space-y-6">
-              {Object.entries(data.categories).map(([category, skills]) => (
+              {Object.entries(data.categories!).map(([category, skills]) => (
                 <div key={category}>
                   <h3 className="text-xl font-bold mb-3" style={{ color: data.color }}>
                     {category}
@@ -64,7 +64,7 @@ export default function DetailedView({ activeSection, onClose }: DetailedViewPro
 
           {activeSection === "experience" && (
             <div className="space-y-6">
-              {data.items.map((item, index) => (
+              {data.items!.map((item, index) => (
                 <div key={index} className="bg-slate-700/20 p-6 rounded-lg border border-slate-600/50">
                   <div className="flex items-start justify-between mb-2">
                     <div>
@@ -77,9 +77,9 @@ export default function DetailedView({ activeSection, onClose }: DetailedViewPro
                   </div>
                   <p className="text-sm text-slate-400 mb-4">{item.location}</p>
                   <ul className="space-y-2">
-                    {item.highlights.map((highlight, i) => (
+                    {item.highlights.map((highlight:string[], i:number) => (
                       <li key={i} className="flex gap-3 text-slate-300">
-                        <span className="flex-shrink-0 mt-1" style={{ color: data.color }}>
+                        <span className="shrink-0 mt-1" style={{ color: data.color }}>
                           ▸
                         </span>
                         <span>{highlight}</span>
@@ -93,16 +93,16 @@ export default function DetailedView({ activeSection, onClose }: DetailedViewPro
 
           {activeSection === "projects" && (
             <div className="space-y-6">
-              {data.items.map((item, index) => (
+              {data.items!.map((item, index) => (
                 <div key={index} className="bg-slate-700/20 p-6 rounded-lg border border-slate-600/50">
                   <h3 className="text-2xl font-bold text-white mb-2">{item.name}</h3>
                   <p className="text-slate-300 mb-4">{item.description}</p>
                   <div className="mb-4">
                     <p className="text-sm font-semibold text-slate-400 mb-2">Key Features:</p>
                     <ul className="space-y-2">
-                      {item.highlights.map((highlight, i) => (
+                      {item.highlights.map((highlight:string[], i:number) => (
                         <li key={i} className="flex gap-3 text-slate-300">
-                          <span className="flex-shrink-0 mt-1" style={{ color: data.color }}>
+                          <span className="shrink-0 mt-1" style={{ color: data.color }}>
                             ▸
                           </span>
                           <span>{highlight}</span>
@@ -120,7 +120,7 @@ export default function DetailedView({ activeSection, onClose }: DetailedViewPro
 
           {activeSection === "education" && (
             <div className="space-y-6">
-              {data.items.map((item, index) => (
+              {data.items!.map((item, index) => (
                 <div key={index} className="bg-slate-700/20 p-6 rounded-lg border border-slate-600/50">
                   <div className="flex items-start justify-between mb-2">
                     <div>
@@ -136,9 +136,9 @@ export default function DetailedView({ activeSection, onClose }: DetailedViewPro
                   <div>
                     <p className="text-sm font-semibold text-slate-400 mb-2">Achievements:</p>
                     <ul className="space-y-2">
-                      {item.achievements.map((achievement, i) => (
+                      {item.achievements.map((achievement:string[], i:number) => (
                         <li key={i} className="flex gap-3 text-slate-300">
-                          <span className="flex-shrink-0 mt-1" style={{ color: data.color }}>
+                          <span className="shrink-0 mt-1" style={{ color: data.color }}>
                             ★
                           </span>
                           <span>{achievement}</span>
