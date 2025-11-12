@@ -11,14 +11,6 @@ type Contact = {
   location: string;
 };
 
-type ExperienceItem = {
-  role: string;
-  company: string;
-  period: string;
-  location: string;
-  highlights: string[];
-};
-
 export type ResumeData = {
   [key: string]:{
     title: string;
