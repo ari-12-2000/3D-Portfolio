@@ -35,7 +35,7 @@ export default function ComputerModel({ activeSection, onSectionClick }: Compute
       </mesh>
 
       {/* Monitor Base */}
-      <mesh position={[0, -2.2, 0]}>
+      <mesh position={[0, -4.2, 0]}>
         <boxGeometry args={[6, 0.3, 2]} />
         <meshStandardMaterial color="#16213e" metalness={0.7} roughness={0.3} />
       </mesh>
