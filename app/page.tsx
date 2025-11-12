@@ -27,7 +27,7 @@ export default function Home() {
         <PerspectiveCamera makeDefault position={[0, 2, 15]} />
         <Environment preset="city" />
         <directionalLight position={[5, 5, 5]} intensity={1.5} />  {/* main sunlight */}
-<ambientLight intensity={0.3} />  {/* gentle global brightness */}
+        <ambientLight intensity={0.3} />  {/* gentle global brightness */}
         <Suspense fallback={null}>
           <ComputerModel activeSection={activeSection} onSectionClick={setActiveSection} />
         </Suspense>
